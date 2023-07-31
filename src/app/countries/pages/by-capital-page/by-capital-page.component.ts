@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ByCapitalPageComponent {
 
+  placeholder = 'Buscar por capital...';
+
+  searchByCapital( term: string ):void {
+    console.log('Desde bycapital');
+    console.log({term});
+  }
+
 }
