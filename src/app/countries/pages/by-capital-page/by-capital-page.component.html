@@ -15,10 +15,8 @@
   <div class="col">
     <hr>
     <!-- table -->
-    <ul>
-      <li *ngFor="let country of countries">
-        {{ country.name.common }}
-      </li>
-    </ul>
+    <countries-table [countries]="countries">
+
+    </countries-table>
   </div>
 </div>
