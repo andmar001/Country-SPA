@@ -5,8 +5,9 @@
   <div class="col">
     <!-- searchbox  -->
     <shared-search-box
-      (onValue)="searchByCapital('')"
-      [placeholder]="placeholder"></shared-search-box>
+      (onValue)="searchByCapital($event)"
+      [placeholder]="placeholder">
+    </shared-search-box>
   </div>
 </div>
 
@@ -14,6 +15,10 @@
   <div class="col">
     <hr>
     <!-- table -->
-    tabla de resultados
+    <ul>
+      <li *ngFor="let country of countries">
+        {{ country.name.common }}
+      </li>
+    </ul>
   </div>
 </div>
