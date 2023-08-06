@@ -5,3 +5,11 @@ forChild() - for the child module
 # create interfaces
 ctrl alt p
 - Paste json as code
+
+# catchError
+
+# map rxjs
+- map es un operador que transforma los valores de un observable en otro observable
+
+# of de rxjs
+- of es un operador que crea un observable a partir de una lista de valores

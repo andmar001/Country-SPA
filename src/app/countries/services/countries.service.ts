@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Country } from '../interfaces/country.interface';
 
 @Injectable({providedIn: 'root'})
@@ -11,7 +12,15 @@ export class CountriesService {
   constructor( private _http:HttpClient) { }
 
   searchCapital( term:string ):Observable<Country[]>{
-    return this._http.get<Country[]>(`${this._apiUrl}/capital/${term}`);
+
+     const url = `${this._apiUrl}/capital/${term}`;
+
+    return this._http.get<Country[]>( url )
+      .pipe(
+        catchError( () => {
+          return of([]); // of() nos permite retornar un observable con un valor por defecto, en este caso un arreglo vacío cuando se produce un error
+        })
+        );
   }
 
 }
