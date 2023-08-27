@@ -1,5 +1,5 @@
 <ng-template #loading>
-  <div class="alert alert-info">
+  <div class="alert alert-info text-center">
     Espere por favor
   </div>
   <hr>
@@ -21,13 +21,13 @@
 <div class="row">
   <div class="col-4">
     <h3>Bandera</h3>
-    <img [src]="country?.flags?.svg" [alt]="country?.name?.common" class="img-fluid">
+    <img [src]="country?.flags?.svg" [alt]="country?.name?.common" class="img-thumbnail">
   </div>
   <div class="col">
     <h3>Información</h3>
     <ul class="list-group">
       <li class="list-group-item">
-        <strong>Población</strong> {{ country?.population | number }}
+        <strong>Población: </strong> {{ country?.population | number }}
       </li>
       <li class="list-group-item">
         <strong>Código</strong> {{ country?.cca3 }}
@@ -40,9 +40,9 @@
   <div class="col">
     <h3>Traducciones</h3>
     <div class="d-flex flex-wrap">
-      <div class="border border-secondary p-2 m-2" *ngFor="let translation of country?.translations | keyvalue">
-        {{ translation.key }}: {{ translation.value }}
-      </div>
+      <span class="badge bg-primary m-1" *ngFor="let translation of country?.translations | keyvalue">
+        {{ translation.value.common }}
+      </span>
     </div>
 
   </div>

@@ -16,3 +16,6 @@ ctrl alt p
 
 # SwitchMap
 - SwitchMap es un operador que transforma los valores de un observable en otro observable
+
+# debounce 
+- debounce es un operador que espera un tiempo determinado para emitir un valor

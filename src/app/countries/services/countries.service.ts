@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, from, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, delay, map, tap } from 'rxjs/operators';
 import { Country } from '../interfaces/country.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -16,7 +16,8 @@ export class CountriesService {
     return this._http.get<Country[]>(url)
       .pipe(
         map( countries => countries.length > 0 ? countries[0] : null),   // Si el arreglo de países es mayor a 0, entonces retornamos el primer país, de lo contrario retornamos null
-        catchError( () => of( null ) )
+        catchError( () => of( null ) ),
+        delay(2000)
       );
   }
 
@@ -26,7 +27,7 @@ export class CountriesService {
     return this._http.get<Country[]>(url)
       .pipe(
         catchError(() => {
-          return of([]); // of() nos permite retornar un observable con un valor por defecto, en este caso un arreglo vacío cuando se produce un error
+          return of([]) // of() nos permite retornar un observable con un valor por defecto, en este caso un arreglo vacío cuando se produce un error
         })
       );
   }
