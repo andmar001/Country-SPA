@@ -13,3 +13,6 @@ ctrl alt p
 
 # of de rxjs
 - of es un operador que crea un observable a partir de una lista de valores
+
+# SwitchMap
+- SwitchMap es un operador que transforma los valores de un observable en otro observable
