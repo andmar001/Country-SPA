@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interface';
 import { delay } from 'rxjs/operators';
@@ -9,13 +9,19 @@ import { delay } from 'rxjs/operators';
   styles: [
   ]
 })
-export class ByCapitalPageComponent {
+export class ByCapitalPageComponent implements OnInit{
 
   placeholder = 'Buscar por capital...';
   public countries:Country[] = [];
   public isLoading:boolean = false;
+  public initialValue:string = '';
 
   constructor( private _countriesService:CountriesService) { }
+
+  ngOnInit(): void {
+    this.countries = this._countriesService.cacheStore.byCapital.countries;
+    this.initialValue = this._countriesService.cacheStore.byCapital.term;
+  }
 
   searchByCapital( term: string ):void {
 
