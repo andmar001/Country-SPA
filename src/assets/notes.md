@@ -19,3 +19,4 @@ ctrl alt p
 
 # debounce 
 - debounce es un operador que espera un tiempo determinado para emitir un valor
+es para evitar que se hagan muchas peticiones al servidor, mientras el usuario escribe

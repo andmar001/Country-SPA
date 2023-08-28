@@ -17,7 +17,7 @@ export class CountriesService {
       .pipe(
         map( countries => countries.length > 0 ? countries[0] : null),   // Si el arreglo de países es mayor a 0, entonces retornamos el primer país, de lo contrario retornamos null
         catchError( () => of( null ) ),
-        delay(2000)
+        // delay(2000)
       );
   }
 
